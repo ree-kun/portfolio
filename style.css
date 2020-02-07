@@ -1,0 +1,36 @@
+.top-pic {
+    background-image: url('top.jpg');
+    height: 350px;
+}
+
+body {
+    background-color: #ECFFEC;
+}
+
+.row {
+    margin: 20px 0;
+}
+
+.col {
+    border: solid 1px;
+    border-radius: 4px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+.work1-pic {
+    background-image: url('top.jpg');
+    height: 230px;
+}
+
+.work2-pic {
+    background-image: url('top.jpg');
+    height: 230px;
+}
+
+.work3-pic {
+    background-image: url('top.jpg');
+    height: 230px;
+}
