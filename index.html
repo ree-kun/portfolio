@@ -18,7 +18,7 @@
             <!-- TODO 可視化するもの  ・スキル  ・経験  ・プロフィール  ・製作物  ・コード -->
             <!-- TODO アイコンを入れる  https://simpleicons.org/ -->
             <div class="row">
-                <div class="col col-md-12">
+                <div class="col col-12">
                     <p>
                         　はじまして。アラサーエンジニアのリョウ（<a href="https://twitter.com/reekun0729" target="_blank">@reekun0729</a>）と申します。2014年春に新卒で独立系SIerに入社してから、IT業界に携わっています。<br>
                         　社内SEとして、入社した会社の基幹システムをリプレイスするプロジェクトに携わり、基本設計〜結合テストまで全体的に経験しました。「プログラミングが楽しい！」「もっとスキルを高めたい！」と自宅でもプログラミングをするうちに、「自分でどこまでできるか挑戦したい！」と思い３年後に独立しました。<br>
@@ -27,6 +27,7 @@
                 </div>
             </div>
             <div class="row">
+                <h2 class="col col-12">SKILLS</h2>
                 <div class="col col-12">
                     <div class="pane">
                         <h3>習得言語</h3>
@@ -269,9 +270,10 @@
                 </div>
             </div>
             <div class="row">
+                <h2 class="col col-12">PRODUCTS</h2>
                 <div class="col col-12 col-md-4">
                     <figure>
-                        <a href="https://www.ryoito.shop/" target="_blank"><div class="work-fig work-pic-1"></div></a>
+                        <a href="https://ree-kun.github.io/portfolio/" target="_blank"><div class="work-fig work-pic-1"></div></a>
                         <figcaption>
                             <p class="work-title">ポートフォリオ <a href="https://github.com/ree-kun/portfolio" target="_blank">(GitHub)</a></p>
                             <p>このサイトです。</p>
@@ -299,22 +301,18 @@
                         </figcaption>
                     </figure>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col col-12">
-                    <h2>contact</h2>
-                    <p>何かあればTwitterにてご連絡ください！</p>
+                    <h2>CONTACT</h2>
+                    <span>
+                        ご連絡はTwitterからお願いします！
+                        <a class="twitter-icon icon">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>
-
-        <script>
-            window.onload = function() {
-                window.setTimeout(deleteVdbanner, 0)
-                function deleteVdbanner() {
-                    var elem = document.getElementById('vdbanner')
-                    if (elem)
-                        elem.parentNode.removeChild(elem)
-                }
-            }
-        </script>
     </body>
 </html>

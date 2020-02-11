@@ -51,6 +51,7 @@ h2 {
     font-size: 6vw;
     font-weight: bold;
     color: #005EA7;
+    margin-top: 80px !important;
 }
 
 h3 {
@@ -78,6 +79,7 @@ table {
 
 th, td {
     height: 45px;
+    padding: 14px 0;
 }
 
 .work-fig {
