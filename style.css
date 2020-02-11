@@ -1,6 +1,7 @@
 body {
     background-color: #84C0DA;
     color: #003682;
+    font-size: 20px;
 }
 
 a {
@@ -44,11 +45,12 @@ a {
     color: #6F8AA9;
     padding: 18px 10px;
     height: 100%;
+    font-size: 20px;
 }
 
 h2 {
     text-align: center;
-    font-size: 6vw;
+    font-size: 50px;
     font-weight: bold;
     color: #EB8EB8;
     margin-top: 80px !important;
@@ -56,17 +58,11 @@ h2 {
 
 h3 {
     text-align: center;
-    font-size: 5vw;
+    font-size: 30px;
     font-weight: bold;
     color: #005EAC;
     letter-spacing: 0.1em;
     margin-left: 0.1em;
-}
-
-@media (min-width: 1280px) {
-    h3 {
-        font-size: 64px;
-    }
 }
 
 table {
@@ -90,7 +86,13 @@ th, td {
     border-radius: 4px 4px 0 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and ( max-width:991px) {
+    .work-fig {
+        height: 300px;
+    }
+}
+
+@media (min-width: 992px) {
     .work-fig {
         height: 200px;
     }
@@ -127,19 +129,19 @@ figure {
 }
 
 .work-title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: #003682;
 }
 
 figcaption p {
-    font-size: 12px;
+    font-size: 15px;
     margin: 11px
 }
 
 svg {
-    width: 5vw;
-    height: 5vw;
+    width: 50px;
+    height: 50px;
     vertical-align: baseline;
     fill: #AD9D8F;
 }
@@ -150,17 +152,18 @@ svg {
 }
 
 .twitter {
+    display: inline-block;
     color: #FFF;
     background-color: #1DA1F2;
-    padding: 4px;
+    padding: 4px 7px;
     border: solid 1px #008CDD;
     border-radius: 3px;
     text-decoration: none !important;
 }
 
 .twitter svg {
-    width: 1rem;
-    height: 1rem;
+    width: 20px;
+    height: 20px;
     fill: #FFF;
     vertical-align: baseline;
 }
