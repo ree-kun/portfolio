@@ -135,3 +135,30 @@ figcaption p {
     font-size: 12px;
     margin: 11px
 }
+
+svg {
+    width: 5vw;
+    height: 5vw;
+    vertical-align: baseline;
+    fill: #F5AF7D;
+}
+
+.contact-link {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.twitter {
+    color: #FFF;
+    background-color: #1DA1F2;
+    padding: 4px;
+    border-radius: 3px;
+    text-decoration: none !important;
+}
+
+.twitter svg {
+    width: 1rem;
+    height: 1rem;
+    fill: #FFF;
+    vertical-align: baseline;
+}
