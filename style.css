@@ -152,6 +152,7 @@ svg {
     color: #FFF;
     background-color: #1DA1F2;
     padding: 4px;
+    border: solid 1px #008CDD;
     border-radius: 3px;
     text-decoration: none !important;
 }
