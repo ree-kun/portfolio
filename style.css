@@ -1,7 +1,17 @@
+html {
+    font-size: 1vw;
+}
+
+@media (min-width: 680px) {
+    html {
+        font-size: 8px;
+    }
+}
+
 body {
     background-color: #84C0DA;
     color: #003682;
-    font-size: 20px;
+    font-size: 2.7rem;
 }
 
 a {
@@ -21,15 +31,15 @@ a {
 }
 
 .top-pic .title {
-    font-size: 7vw;
+    font-size: 9rem;
     font-weight: bold;
     text-align: center;
-    padding-top: 5vw;
-    padding-bottom: 3vw;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
 }
 
 .top-pic .sub-title {
-    font-size: 5vw;
+    font-size: 6rem;
     font-weight: bold;
     text-align: center;
 }
@@ -45,12 +55,11 @@ a {
     color: #6F8AA9;
     padding: 18px 10px;
     height: 100%;
-    font-size: 20px;
 }
 
 h2 {
     text-align: center;
-    font-size: 50px;
+    font-size: 7rem;
     font-weight: bold;
     color: #EB8EB8;
     margin-top: 80px !important;
@@ -58,7 +67,7 @@ h2 {
 
 h3 {
     text-align: center;
-    font-size: 30px;
+    font-size: 5rem;
     font-weight: bold;
     color: #005EAC;
     letter-spacing: 0.1em;
@@ -70,7 +79,7 @@ table {
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
-    font-size: 17px;
+    font-size: 2.7rem;
 }
 
 th, td {
@@ -129,19 +138,19 @@ figure {
 }
 
 .work-title {
-    font-size: 16px;
+    font-size: 3rem;
     font-weight: bold;
     color: #003682;
 }
 
 figcaption p {
-    font-size: 15px;
+    font-size: 2.7rem;
     margin: 11px
 }
 
 svg {
-    width: 50px;
-    height: 50px;
+    width: 6.5rem;
+    height: 6.5rem;
     vertical-align: baseline;
     fill: #AD9D8F;
 }
@@ -149,6 +158,10 @@ svg {
 .contact-link {
     text-align: center;
     margin: 40px 0;
+}
+
+.contact-link span {
+    font-size: 3rem;
 }
 
 .twitter {
@@ -162,8 +175,9 @@ svg {
 }
 
 .twitter svg {
-    width: 20px;
-    height: 20px;
+    width: 3rem;
+    height: 3rem;
     fill: #FFF;
-    vertical-align: baseline;
+    vertical-align: bottom;
+    margin-bottom: 0.8rem;
 }
