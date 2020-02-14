@@ -4,7 +4,7 @@ html {
 
 @media (min-width: 680px) {
     html {
-        font-size: 8px;
+        font-size: 7px;
     }
 }
 
@@ -12,6 +12,12 @@ body {
     background-color: #84C0DA;
     color: #003682;
     font-size: 3.3rem;
+}
+
+.profile {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    line-height: 1.7;
 }
 
 a {
@@ -161,7 +167,7 @@ svg {
 }
 
 .contact-link span {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
 }
 
 .twitter {
