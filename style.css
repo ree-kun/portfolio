@@ -11,7 +11,7 @@ html {
 body {
     background-color: #84C0DA;
     color: #003682;
-    font-size: 3rem;
+    font-size: 3.3rem;
 }
 
 a {
@@ -161,7 +161,7 @@ svg {
 }
 
 .contact-link span {
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 
 .twitter {
