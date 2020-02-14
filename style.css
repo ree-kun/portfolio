@@ -11,7 +11,7 @@ html {
 body {
     background-color: #84C0DA;
     color: #003682;
-    font-size: 2.7rem;
+    font-size: 3rem;
 }
 
 a {
@@ -59,7 +59,7 @@ a {
 
 h2 {
     text-align: center;
-    font-size: 7rem;
+    font-size: 9rem;
     font-weight: bold;
     color: #EB8EB8;
     margin-top: 80px !important;
@@ -67,7 +67,7 @@ h2 {
 
 h3 {
     text-align: center;
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: bold;
     color: #005EAC;
     letter-spacing: 0.1em;
@@ -79,7 +79,7 @@ table {
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
-    font-size: 2.7rem;
+    font-size: 3rem;
 }
 
 th, td {
@@ -144,13 +144,13 @@ figure {
 }
 
 figcaption p {
-    font-size: 2.7rem;
+    font-size: 3rem;
     margin: 11px
 }
 
 svg {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 7rem;
+    height: 7rem;
     vertical-align: baseline;
     fill: #AD9D8F;
 }
