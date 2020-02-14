@@ -59,7 +59,7 @@ a {
 
 h2 {
     text-align: center;
-    font-size: 9rem;
+    font-size: 11rem;
     font-weight: bold;
     color: #EB8EB8;
     margin-top: 80px !important;
@@ -149,8 +149,8 @@ figcaption p {
 }
 
 svg {
-    width: 7rem;
-    height: 7rem;
+    width: 9rem;
+    height: 9rem;
     vertical-align: baseline;
     fill: #AD9D8F;
 }
