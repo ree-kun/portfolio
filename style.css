@@ -37,7 +37,7 @@ a {
 }
 
 .top-pic .title {
-    font-size: 9rem;
+    font-size: 9vw;
     font-weight: bold;
     text-align: center;
     padding-top: 5rem;
@@ -45,7 +45,7 @@ a {
 }
 
 .top-pic .sub-title {
-    font-size: 6rem;
+    font-size: 6vw;
     font-weight: bold;
     text-align: center;
 }
@@ -68,7 +68,7 @@ h2 {
     font-size: 11rem;
     font-weight: bold;
     color: #EB8EB8;
-    margin-top: 80px !important;
+    margin-top: 11rem !important;
 }
 
 h3 {
@@ -85,7 +85,7 @@ table {
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
-    font-size: 3rem;
+    font-size: 3.3rem;
 }
 
 th, td {
