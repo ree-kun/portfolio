@@ -160,30 +160,3 @@ svg {
     vertical-align: baseline;
     fill: #AD9D8F;
 }
-
-.contact-link {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.contact-link span {
-    font-size: 3.8rem;
-}
-
-.twitter {
-    display: inline-block;
-    color: #FFF;
-    background-color: #1DA1F2;
-    padding: 4px 7px;
-    border: solid 1px #008CDD;
-    border-radius: 3px;
-    text-decoration: none !important;
-}
-
-.twitter svg {
-    width: 3rem;
-    height: 3rem;
-    fill: #FFF;
-    vertical-align: bottom;
-    margin-bottom: 0.8rem;
-}
