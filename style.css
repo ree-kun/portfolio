@@ -127,7 +127,8 @@ figure > a::after {
 }
 
 .work-pic-2 {
-    background-image: url('work2-pic.jpg');
+    background-image: url('work2-pic_maintenance.jpg');
+    cursor: default;
 }
 
 .work-pic-3 {
