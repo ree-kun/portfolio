@@ -8,6 +8,13 @@ html {
     }
 }
 
+body {
+    background-color: #84C0DA;
+    color: #003682;
+    font-size: 3.3rem;
+    padding: 30px;
+}
+
 .main {
     height: 744px;
     width: 1081px;
@@ -20,13 +27,6 @@ html {
     height: 2232px;
     width: 1064px;
     background-color: #34C0DA;
-}
-
-body {
-    background-color: #84C0DA;
-    color: #003682;
-    font-size: 3.3rem;
-    padding: 30px;
 }
 
 .pic {

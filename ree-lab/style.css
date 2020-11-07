@@ -14,40 +14,8 @@ body {
     font-size: 3.3rem;
 }
 
-.profile {
-    margin-top: 1%;
-    margin-bottom: 2%;
-    line-height: 1.7;
-}
-
 a {
     color: #005EAC;
-}
-
-.top-pic {
-    background-image: url('top-pic.jpg');
-    height: 60vw;
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-}
-
-.top-pic div {
-    color: #EB8EB8;
-}
-
-.top-pic .title {
-    font-size: 9vw;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-}
-
-.top-pic .sub-title {
-    font-size: 6vw;
-    font-weight: bold;
-    text-align: center;
 }
 
 .col {
@@ -94,23 +62,11 @@ th, td {
 }
 
 .work-fig {
-    height: 230px;
+    height: 350px;
     background-size: cover;
     cursor: pointer;
     margin: 1px;
     border-radius: 4px 4px 0 0;
-}
-
-@media (min-width: 768px) and ( max-width:991px) {
-    .work-fig {
-        height: 300px;
-    }
-}
-
-@media (min-width: 992px) {
-    .work-fig {
-        height: 200px;
-    }
 }
 
 figure > a::after {
@@ -122,25 +78,12 @@ figure > a::after {
     margin: 0;
 }
 
-.work-pic-1 {
-    background-image: url('work1-pic.jpg');
-    cursor: default;
+.lab-pic-1 {
+    background-image: url('./government_graph/sample.gif');
 }
 
-.work-pic-2 {
-    background-image: url('work2-pic.jpg');
-    cursor: default;
-}
-
-.work-pic-3 {
-    background-image: url('work3-pic.jpg');
-    cursor: default;
-}
-
-.lab-pic {
-    background-image: url('ree-lab-pic.png');
-    cursor: default;
-    background-position: bottom;
+.lab-pic-2 {
+    background-image: url('./station_map/sample.gif');
 }
 
 figure {
