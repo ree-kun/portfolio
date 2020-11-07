@@ -1,0 +1,51 @@
+html {
+    font-size: 1vw;
+}
+
+@media (min-width: 680px) {
+    html {
+        font-size: 7px;
+    }
+}
+
+.main {
+    height: 744px;
+    width: 1081px;
+    background-color: #04C0DA;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.comp {
+    height: 2232px;
+    width: 1064px;
+    background-color: #34C0DA;
+}
+
+body {
+    background-color: #84C0DA;
+    color: #003682;
+    font-size: 3.3rem;
+    padding: 30px;
+}
+
+.pic {
+    height: 744px;
+    width: 1064px;
+    position: fixed;
+}
+
+.b1f {
+    background-image: url('渋谷駅_B1F.png');
+    opacity: 1;
+}
+
+.b2f {
+    background-image: url('渋谷駅_B2F.png');
+    opacity: 0;
+}
+
+.b4f {
+    background-image: url('渋谷駅_B4F.png');
+    opacity: 0;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Ryo portfolio</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+	<body>
+		<div class="container main">
+			<div class="comp">
+				<div class="pic b1f"></div>
+				<div class="pic b2f"></div>
+				<div class="pic b4f"></div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	window.onload = function() {
+		$('.main').on('scroll', function(){
+			//スクロールノブの中心位置（０～１００％）を取得
+			const knobPosition = $('.main').scrollTop() / ($('.comp').height() - $('.main').height());
+			// console.log(knobPosition);
+			$('.b1f').css('opacity', 1 - 2 * knobPosition);
+			$('.b2f').css('opacity', knobPosition < 0.5 ? 2 * knobPosition : 2 - 2 * knobPosition);
+			$('.b4f').css('opacity', 2 * knobPosition - 1);
+			// console.log(knobPosition < 0.5 ? 2 * knobPosition : 2 - 2 * knobPosition);
+		});
+	}
+</script>
