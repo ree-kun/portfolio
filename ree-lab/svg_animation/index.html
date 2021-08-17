@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Ryo portfolio</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+	<body>
+		<div class="container">
+			<svg x=0 y=0 width=150 height=150 style="background-color: #ddd">
+				<polygon id="pol" points="50 10, 70 30, 50 50, 30 30" fill="#99f" />
+			</svg>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	function formatCoord(xyList) {
+		return xyList.map(xy => xy.x + ' ' + xy.y).join(', ')
+	}
+
+	function genPoints(x, y, r, rad) {
+		return [
+			{x: x + r * Math.sin(rad), y: y - r * Math.cos(rad)},
+			{x: x + r * Math.cos(rad), y: y + r * Math.sin(rad)},
+			{x: x - r * Math.sin(rad), y: y + r * Math.cos(rad)},
+			{x: x - r * Math.cos(rad), y: y - r * Math.sin(rad)}
+		]
+	}
+
+	let polygon = document.getElementById('pol')
+	let rad = 0
+	setInterval(() => {
+		let points = genPoints(75, 75, 60, rad)
+		polygon.setAttribute('points', formatCoord(points))
+		rad += 0.01
+	}, 50)
+</script>
