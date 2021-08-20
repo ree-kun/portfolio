@@ -9,9 +9,17 @@
 
 	<body>
 		<div class="container">
-			<svg x=0 y=0 width=150 height=150 style="background-color: #ddd">
-				<polygon id="pol" points="50 10, 70 30, 50 50, 30 30" fill="#99f" />
-			</svg>
+			<div class="svg-wrapper">
+				<svg id="main" x=0 y=0 width=1600 height=900 style="background-color: #ddd" viewBox="-800 -450 1600 900" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="0" cy="0" r="90" fill="#e74c3c" />
+					<line id="l-left1" stroke="#000" />
+					<line id="l-left2" stroke="#000" />
+					<line id="l-left3" stroke="#000" />
+					<line id="l-right1" stroke="#000" />
+					<line id="l-right2" stroke="#000" />
+					<line id="l-right3" stroke="#000" />
+				</svg>
+			</div>
 		</div>
 	</body>
 </html>
@@ -29,11 +37,62 @@
 		]
 	}
 
-	let polygon = document.getElementById('pol')
-	let rad = 0
+	function convertCoor(x, y, z) {
+		const svg_height = 450
+		const atanx = Math.atan2(x, z)
+		const atany = Math.atan2(y, z)
+		return {x: svg_height * (x / z), y: svg_height * (y / z)}
+	}
+
+	function setLineCoord(line, x, y, z) {
+		// x座標だけ反転した点とを結ぶ
+		const coord1 = convertCoor( x, y, z)
+		const coord2 = convertCoor(-x, y, z)
+		line.setAttribute('x1', coord1.x)
+		line.setAttribute('y1', coord1.y)
+		line.setAttribute('x2', coord2.x)
+		line.setAttribute('y2', coord2.y)
+	}
+
+	const origin = {x: 0, y: 0, z: 0}
+
+	const main = document.getElementById('main')
+	const y = -16.5
+	for (let i = 1; i <= 60; i++) {
+		let l = document.createElementNS('http://www.w3.org/2000/svg','line')
+		l.id = 'l' + i
+		l.setAttribute('stroke', '#000')
+		main.appendChild(l)
+		setLineCoord(l, 100, y, 40 * i - 4)
+	}
+
+	for (let i = 1; i <= 3; i++) {
+		let l_left = document.getElementById('l-left' + i)
+		let l_right = document.getElementById('l-right' + i)
+
+		let coord_left = convertCoor(40 * i - 20, y, 1)
+		let coord_right = convertCoor(-40 * i + 20, y, 1)
+
+		l_left.setAttribute('x1', coord_left.x)
+		l_left.setAttribute('y1', coord_left.y)
+		l_left.setAttribute('x2', 0)
+		l_left.setAttribute('y2', 0)
+
+		l_right.setAttribute('x1', coord_right.x)
+		l_right.setAttribute('y1', coord_right.y)
+		l_right.setAttribute('x2', 0)
+		l_right.setAttribute('y2', 0)
+	}
+
+	let z = 0
 	setInterval(() => {
-		let points = genPoints(75, 75, 60, rad)
-		polygon.setAttribute('points', formatCoord(points))
-		rad += 0.01
-	}, 50)
+
+		for (let i = 1; i <= 60; i++) {
+			let l = document.getElementById('l' + i)
+			l.id = 'l' + i
+			setLineCoord(l, 100, y, 40 * i - z)
+		}
+		z = (z + 0.5) % 40
+	}, 10)
+
 </script>
