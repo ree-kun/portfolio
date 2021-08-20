@@ -24,6 +24,34 @@
 	</body>
 </html>
 <script type="text/javascript">
+	function genDiagram(tagName, id) {
+		let diagram = document.createElementNS('http://www.w3.org/2000/svg',tagName)
+		diagram.id = id
+		diagram.setAttribute('stroke', '#000')
+		return diagram
+	}
+
+	function genLine(id, x1, y1, z1, x2, y2, z2) {
+		const line = genDiagram('line', id)
+		const coord1 = convertCoor(x1, y1, z1)
+		const coord2 = convertCoor(x2, y2, z2)
+		line.setAttribute('x1', coord1.x)
+		line.setAttribute('y1', coord1.y)
+		line.setAttribute('x2', coord2.x)
+		line.setAttribute('y2', coord2.y)
+		return line
+	}
+
+	function setLineCoord(line, x1, y1, z1, x2, y2, z2) {
+		// x座標だけ反転した点とを結ぶ
+		const coord1 = convertCoor(x1, y1, z1)
+		const coord2 = convertCoor(x2, y2, z2)
+		line.setAttribute('x1', coord1.x)
+		line.setAttribute('y1', coord1.y)
+		line.setAttribute('x2', coord2.x)
+		line.setAttribute('y2', coord2.y)
+	}
+
 	function formatCoord(xyList) {
 		return xyList.map(xy => xy.x + ' ' + xy.y).join(', ')
 	}
@@ -38,50 +66,29 @@
 	}
 
 	function convertCoor(x, y, z) {
-		const svg_height = 450
-		const atanx = Math.atan2(x, z)
-		const atany = Math.atan2(y, z)
-		return {x: svg_height * (x / z), y: svg_height * (y / z)}
-	}
-
-	function setLineCoord(line, x, y, z) {
-		// x座標だけ反転した点とを結ぶ
-		const coord1 = convertCoor( x, y, z)
-		const coord2 = convertCoor(-x, y, z)
-		line.setAttribute('x1', coord1.x)
-		line.setAttribute('y1', coord1.y)
-		line.setAttribute('x2', coord2.x)
-		line.setAttribute('y2', coord2.y)
+		let notZeroZ = !z ? 0.000001 : z
+		const svgHeight = 450
+		return {x: svgHeight * (x / notZeroZ), y: svgHeight * (y / notZeroZ)}
 	}
 
 	const origin = {x: 0, y: 0, z: 0}
 
 	const main = document.getElementById('main')
-	const y = -16.5
+	const baseY = -16.5
 	for (let i = 1; i <= 60; i++) {
-		let l = document.createElementNS('http://www.w3.org/2000/svg','line')
-		l.id = 'l' + i
-		l.setAttribute('stroke', '#000')
+		let [x, y, z] = [100, baseY, 40 * (i - 1)]
+		let id = 'l' + i
+		let l = genLine(id, x, y, z, -x, y, z)
 		main.appendChild(l)
-		setLineCoord(l, 100, y, 40 * i - 4)
 	}
 
 	for (let i = 1; i <= 3; i++) {
-		let l_left = document.getElementById('l-left' + i)
-		let l_right = document.getElementById('l-right' + i)
+		let lLeft = document.getElementById('l-left' + i)
+		let lRight = document.getElementById('l-right' + i)
 
-		let coord_left = convertCoor(40 * i - 20, y, 1)
-		let coord_right = convertCoor(-40 * i + 20, y, 1)
-
-		l_left.setAttribute('x1', coord_left.x)
-		l_left.setAttribute('y1', coord_left.y)
-		l_left.setAttribute('x2', 0)
-		l_left.setAttribute('y2', 0)
-
-		l_right.setAttribute('x1', coord_right.x)
-		l_right.setAttribute('y1', coord_right.y)
-		l_right.setAttribute('x2', 0)
-		l_right.setAttribute('y2', 0)
+		let [x, y, z] = [40 * i - 20, baseY, 1]
+		setLineCoord(lLeft, -x, y, z, 0, 0, 1)
+		setLineCoord(lRight, x, y, z, 0, 0, 1)
 	}
 
 	let z = 0
@@ -89,10 +96,10 @@
 
 		for (let i = 1; i <= 60; i++) {
 			let l = document.getElementById('l' + i)
-			l.id = 'l' + i
-			setLineCoord(l, 100, y, 40 * i - z)
+			let [x, y] = [100, baseY]
+			setLineCoord(l, x, y, 40 * i - z, -x, y, 40 * i - z)
 		}
-		z = (z + 0.5) % 40
-	}, 10)
+		z = (z + 1.5) % 40
+	}, 100)
 
 </script>
