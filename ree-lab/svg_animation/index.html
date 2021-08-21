@@ -28,32 +28,61 @@
 		let diagram = document.createElementNS('http://www.w3.org/2000/svg',tagName)
 		diagram.id = id
 		diagram.setAttribute('stroke', '#000')
+		main.appendChild(diagram)
 		return diagram
 	}
 
 	function genLine(id, x1, y1, z1, x2, y2, z2) {
 		const line = genDiagram('line', id)
-		const coord1 = convertCoor(x1, y1, z1)
-		const coord2 = convertCoor(x2, y2, z2)
-		line.setAttribute('x1', coord1.x)
-		line.setAttribute('y1', coord1.y)
-		line.setAttribute('x2', coord2.x)
-		line.setAttribute('y2', coord2.y)
+		setLineCoord(line, x1, y1, z1, x2, y2, z2)
 		return line
 	}
 
 	function setLineCoord(line, x1, y1, z1, x2, y2, z2) {
 		// x座標だけ反転した点とを結ぶ
-		const coord1 = convertCoor(x1, y1, z1)
-		const coord2 = convertCoor(x2, y2, z2)
+		const coord1 = convertCoordinate(x1, y1, z1)
+		const coord2 = convertCoordinate(x2, y2, z2)
 		line.setAttribute('x1', coord1.x)
 		line.setAttribute('y1', coord1.y)
 		line.setAttribute('x2', coord2.x)
 		line.setAttribute('y2', coord2.y)
 	}
 
-	function formatCoord(xyList) {
-		return xyList.map(xy => xy.x + ' ' + xy.y).join(', ')
+	function genCuboid(id, x1, y1, z1, x2, y2, z2) {
+		const polygons = [1, 2, 3].map(i => {
+			const polygon = genDiagram('polygon', id + '-' + i)
+			polygon.setAttribute('fill', '#fff')
+			return polygon
+		})
+		setCuboidCoord(polygons, x1, y1, z1, x2, y2, z2)
+		return polygons
+	}
+
+	function setCuboidCoord(cuboid, x1, y1, z1, x2, y2, z2) {
+		const verticesList = [
+			[
+				convertCoordinate(x1, y1, z1),
+				convertCoordinate(x2, y1, z1),
+				convertCoordinate(x2, y2, z1),
+				convertCoordinate(x1, y2, z1)
+			],
+			[
+				convertCoordinate(x1, y1, z1),
+				convertCoordinate(x1, y2, z1),
+				convertCoordinate(x1, y2, z2),
+				convertCoordinate(x1, y1, z2)
+			],
+			[
+				convertCoordinate(x1, y1, z1),
+				convertCoordinate(x2, y1, z1),
+				convertCoordinate(x2, y1, z2),
+				convertCoordinate(x1, y1, z2)
+			]
+		]
+		verticesList.map((vertices, i) => {
+			cuboid[i].setAttribute('points',
+				vertices.map(xy => xy.x + ' ' + xy.y).join(', '))
+		})
 	}
 
 	function genPoints(x, y, r, rad) {
@@ -65,41 +94,45 @@
 		]
 	}
 
-	function convertCoor(x, y, z) {
-		let notZeroZ = !z ? 0.000001 : z
+	function convertCoordinate(x, y, z) {
+		let notZeroY = !y ? 0.000001 : y
 		const svgHeight = 450
-		return {x: svgHeight * (x / notZeroZ), y: svgHeight * (y / notZeroZ)}
+		return {x: svgHeight * (x / notZeroY), y: svgHeight * (z / notZeroY)}
 	}
 
 	const origin = {x: 0, y: 0, z: 0}
 
 	const main = document.getElementById('main')
-	const baseY = -16.5
+	const baseZ = -16.5
 	for (let i = 1; i <= 60; i++) {
-		let [x, y, z] = [100, baseY, 40 * (i - 1)]
+		let [x, y, z] = [100, 40 * (i - 1), baseZ]
 		let id = 'l' + i
-		let l = genLine(id, x, y, z, -x, y, z)
-		main.appendChild(l)
+		genLine(id, x, y, z, -x, y, z)
 	}
 
 	for (let i = 1; i <= 3; i++) {
 		let lLeft = document.getElementById('l-left' + i)
 		let lRight = document.getElementById('l-right' + i)
 
-		let [x, y, z] = [40 * i - 20, baseY, 1]
-		setLineCoord(lLeft, -x, y, z, 0, 0, 1)
-		setLineCoord(lRight, x, y, z, 0, 0, 1)
+		let [x, y, z] = [40 * i - 20, 1, baseZ]
+		setLineCoord(lLeft, -x, y, z, 0, 1, 0)
+		setLineCoord(lRight, x, y, z, 0, 1, 0)
 	}
 
-	let z = 0
+	const cuboid = genCuboid('c1', 30, 260, baseZ + 10, 60, 300, baseZ)
+
+	let y = 0
+	let cuboidY = 0
 	setInterval(() => {
 
 		for (let i = 1; i <= 60; i++) {
 			let l = document.getElementById('l' + i)
-			let [x, y] = [100, baseY]
-			setLineCoord(l, x, y, 40 * i - z, -x, y, 40 * i - z)
+			let [x, z] = [100, baseZ]
+			setLineCoord(l, x, 40 * i + y, z, -x, 40 * i + y, z)
 		}
-		z = (z + 1.5) % 40
-	}, 100)
+		cuboidY = (cuboidY - 8.0) % 260
+		setCuboidCoord(cuboid, 30, 260 + cuboidY, baseZ + 10, 60, 300 + cuboidY, baseZ)
+		y = (y - 8.0) % 40
+	}, 300)
 
 </script>
